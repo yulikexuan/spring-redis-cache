@@ -55,6 +55,9 @@ public class UltimateRedisCacheApplication implements CommandLineRunner {
         String controlledSecond = this.getFromControlledCache();
         log.info(">>>>>>> Controlled Second: {} {}", controlledSecond,
                 LINE_SEPARATOR);
+
+        log.info(">>>>>>> Clearing all cache entries: ");
+        this.clearCaches();
     }
 
     private void generalUsage() {
@@ -82,6 +85,11 @@ public class UltimateRedisCacheApplication implements CommandLineRunner {
         log.info(">>>>>>> Returning from Cache: {}", fromCache);
 
         return fromCache;
+    }
+
+    private void clearCaches() {
+        this.cacheService.forgetAboutThis();
+        this.controlledCacheService.removeFromCache();
     }
 
 }///:~
