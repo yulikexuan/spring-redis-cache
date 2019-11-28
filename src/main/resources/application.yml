@@ -1,0 +1,8 @@
+spring:
+  redis:
+    host: localhost
+    port: 6379
+cache: 
+  timeout: 60
+  cacheExpirations:
+    myControlledCache: 180
